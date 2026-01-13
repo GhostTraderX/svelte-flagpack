@@ -44,7 +44,9 @@ export interface FlagProps {
   class?: string;
 }
 
-declare class Flag extends SvelteComponent {
+// Support both Svelte 3 and Svelte 5 typing patterns
+declare class Flag extends SvelteComponent<FlagProps> {
+  // Svelte 3 compatibility
   $$prop_def: FlagProps;
 }
 
