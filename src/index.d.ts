@@ -1,4 +1,4 @@
-import { SvelteComponent } from 'svelte';
+import type { Component } from 'svelte';
 
 export interface FlagProps {
   /**
@@ -12,7 +12,7 @@ export interface FlagProps {
    * The size of the flag
    * @default "m"
    */
-  size?: 's' | 'm' | 'l' | 'S' | 'M' | 'L';
+  size?: 's' | 'm' | 'l';
   
   /**
    * The gradient style to apply to the flag
@@ -44,10 +44,8 @@ export interface FlagProps {
   class?: string;
 }
 
-// Support both Svelte 3 and Svelte 5 typing patterns
-declare class Flag extends SvelteComponent<FlagProps> {
-  // Svelte 3 compatibility
-  $$prop_def: FlagProps;
-}
+// Svelte 5 component typing
+declare const Flag: Component<FlagProps>;
 
 export default Flag;
+export { Flag };
