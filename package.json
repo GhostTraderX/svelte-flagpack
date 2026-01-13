@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "svelte": "src/Flag.svelte",
+  "types": "index.d.ts",
   "scripts": {
     "build": "cross-env NODE_ENV=production rollup -c && npm run generate-flags",
     "dev": "rollup -c -w",
