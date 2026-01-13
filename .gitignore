@@ -4,6 +4,12 @@ npm-debug.log
 yarn-error.log
 .package-lock.json
 
+# Build outputs - keep flags folder but ignore build artifacts
+dist/*.js
+dist/*.mjs
+dist/*.d.ts
+dist/*.map
+
 # Editor directories and files
 .idea
 *.suo
