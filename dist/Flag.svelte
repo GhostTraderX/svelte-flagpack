@@ -26,6 +26,8 @@
   const normalizedSize = $derived(lower(size));
 
   // Dynamically construct the flag URL
+  // Note: Flags are pre-generated at build time into dist/flags/ directory
+  // This path is relative to where the component is used in the consuming application
   const flagUrl = $derived(`./dist/flags/${normalizedSize}/${code}.svg`);
 </script>
 

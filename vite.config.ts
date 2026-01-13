@@ -1,7 +1,11 @@
 import { defineConfig } from 'vite';
 import { svelte } from '@sveltejs/vite-plugin-svelte';
-import { resolve } from 'path';
-import { copyFileSync, rmSync } from 'fs';
+import { resolve, dirname } from 'path';
+import { copyFileSync, rmSync, existsSync } from 'fs';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export default defineConfig({
   plugins: [
@@ -24,10 +28,9 @@ export default defineConfig({
           resolve(__dirname, 'dist/index.d.ts')
         );
         // Remove CSS file if it was generated
-        try {
-          rmSync(resolve(__dirname, 'dist/svelte-flagpack.css'));
-        } catch (e) {
-          // Ignore if file doesn't exist
+        const cssPath = resolve(__dirname, 'dist/svelte-flagpack.css');
+        if (existsSync(cssPath)) {
+          rmSync(cssPath);
         }
       }
     }
