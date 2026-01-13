@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Svelte Flagpack Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .flag-row {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            align-items: center;
+        }
+        .label {
+            font-weight: bold;
+            min-width: 120px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Svelte Flagpack - Test Page</h1>
+        <p>This is a simple test to ensure the Svelte 5 migration is working correctly.</p>
+        
+        <div class="flag-row">
+            <span class="label">Size S:</span>
+            <div id="flag-s"></div>
+        </div>
+        
+        <div class="flag-row">
+            <span class="label">Size M:</span>
+            <div id="flag-m"></div>
+        </div>
+        
+        <div class="flag-row">
+            <span class="label">Size L:</span>
+            <div id="flag-l"></div>
+        </div>
+        
+        <div class="flag-row">
+            <span class="label">With Gradient:</span>
+            <div id="flag-gradient"></div>
+        </div>
+        
+        <div class="flag-row">
+            <span class="label">Different Country:</span>
+            <div id="flag-us"></div>
+            <div id="flag-gb"></div>
+            <div id="flag-jp"></div>
+            <div id="flag-fr"></div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { mount } from 'svelte';
+        import Flag from './dist/Flag.svelte';
+
+        // Test different sizes
+        mount(Flag, { target: document.getElementById('flag-s'), props: { code: 'NL', size: 's' } });
+        mount(Flag, { target: document.getElementById('flag-m'), props: { code: 'NL', size: 'm' } });
+        mount(Flag, { target: document.getElementById('flag-l'), props: { code: 'NL', size: 'l' } });
+        
+        // Test gradient
+        mount(Flag, { target: document.getElementById('flag-gradient'), props: { code: 'NL', size: 'l', gradient: 'real-linear' } });
+        
+        // Test different countries
+        mount(Flag, { target: document.getElementById('flag-us'), props: { code: 'US', size: 'l' } });
+        mount(Flag, { target: document.getElementById('flag-gb'), props: { code: 'GB-UKM', size: 'l' } });
+        mount(Flag, { target: document.getElementById('flag-jp'), props: { code: 'JP', size: 'l' } });
+        mount(Flag, { target: document.getElementById('flag-fr'), props: { code: 'FR', size: 'l' } });
+    </script>
+</body>
+</html>

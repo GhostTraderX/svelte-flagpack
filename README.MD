@@ -28,6 +28,8 @@ Flagpack contains 250+ flag icons to easily use within your code project. Flagpa
 $: npm install svelte-flagpack --save
 ```
 
+**Note:** This package requires Svelte 5. For Svelte 3/4 support, please use version 0.0.x.
+
 ## Usage
 
 ### Defining the component
@@ -51,8 +53,8 @@ import Flag from 'svelte-flagpack'
 | Key   | Value   | Required | Default | Format |
 |-------|-------|------|------|------|
 | code |  String | false | 'NL' | [See all codes](https://flagpack.xyz/docs/flag-index/) |
-| size |  String | false | 'L' | 'S', 'M' or 'L' |
-| className |  String | false | - | - |
+| size |  String | false | 'm' | 's', 'm' or 'l' (case insensitive) |
+| class |  String | false | - | - |
 | hasDropShadow |  Boolean | false | false | - |
 | hasBorder |  Boolean | false | true | - |
 | hasBorderRadius | Boolean | false | true | - |
