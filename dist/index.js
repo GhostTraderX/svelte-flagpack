@@ -3,11 +3,11 @@ var Ue = (e) => {
   throw TypeError(e);
 };
 var St = (e, t, n) => t in e ? yt(e, t, { enumerable: !0, configurable: !0, writable: !0, value: n }) : e[t] = n;
-var I = (e, t, n) => St(e, typeof t != "symbol" ? t + "" : t, n), Te = (e, t, n) => t.has(e) || Ue("Cannot " + n);
-var v = (e, t, n) => (Te(e, t, "read from private field"), n ? n.call(e) : t.get(e)), F = (e, t, n) => t.has(e) ? Ue("Cannot add the same private member more than once") : t instanceof WeakSet ? t.add(e) : t.set(e, n), K = (e, t, n, r) => (Te(e, t, "write to private field"), r ? r.call(e, n) : t.set(e, n), n), j = (e, t, n) => (Te(e, t, "access private method"), n);
+var I = (e, t, n) => St(e, typeof t != "symbol" ? t + "" : t, n), ke = (e, t, n) => t.has(e) || Ue("Cannot " + n);
+var v = (e, t, n) => (ke(e, t, "read from private field"), n ? n.call(e) : t.get(e)), F = (e, t, n) => t.has(e) ? Ue("Cannot add the same private member more than once") : t instanceof WeakSet ? t.add(e) : t.set(e, n), K = (e, t, n, r) => (ke(e, t, "write to private field"), r ? r.call(e, n) : t.set(e, n), n), j = (e, t, n) => (ke(e, t, "access private method"), n);
 var Ge;
 typeof window < "u" && ((Ge = window.__svelte ?? (window.__svelte = {})).v ?? (Ge.v = /* @__PURE__ */ new Set())).add("5");
-const Tt = 2, ye = Symbol(), kt = "http://www.w3.org/1999/xhtml", Ae = !1;
+const kt = 2, ye = Symbol(), Tt = "http://www.w3.org/1999/xhtml", Ae = !1;
 var At = Array.prototype.indexOf, Nt = Object.getOwnPropertyDescriptors, Rt = Object.getPrototypeOf;
 function Ct(e) {
   for (var t = 0; t < e.length; t++)
@@ -19,7 +19,7 @@ function Ke() {
   });
   return { promise: n, resolve: e, reject: t };
 }
-const b = 2, _e = 4, De = 8, We = 1 << 24, se = 16, ue = 32, ie = 64, Ze = 128, T = 512, m = 1024, y = 2048, P = 4096, J = 8192, O = 16384, Je = 32768, je = 65536, Qe = 1 << 18, Ie = 1 << 19, zt = 1 << 20, G = 32768, Ne = 1 << 21, Xe = 1 << 22, M = 1 << 23, Ft = Symbol(""), W = new class extends Error {
+const b = 2, _e = 4, De = 8, We = 1 << 24, se = 16, ue = 32, ie = 64, Ze = 128, k = 512, m = 1024, y = 2048, P = 4096, J = 8192, O = 16384, Je = 32768, je = 65536, Qe = 1 << 18, Ie = 1 << 19, zt = 1 << 20, G = 32768, Ne = 1 << 21, Xe = 1 << 22, M = 1 << 23, Ft = Symbol(""), W = new class extends Error {
   constructor() {
     super(...arguments);
     I(this, "name", "StaleReactionError");
@@ -109,7 +109,7 @@ function x(e, t) {
   e.f = e.f & Bt | t;
 }
 function Oe(e) {
-  (e.f & T) !== 0 || e.deps === null ? x(e, m) : x(e, P);
+  (e.f & k) !== 0 || e.deps === null ? x(e, m) : x(e, P);
 }
 function et(e) {
   if (e !== null)
@@ -579,7 +579,7 @@ function Wt(e, t, n) {
   });
 }
 // @__NO_SIDE_EFFECTS__
-function ke(e) {
+function Te(e) {
   const t = /* @__PURE__ */ st(e);
   return dn(t), t;
 }
@@ -677,7 +677,7 @@ function at(e, t) {
           /** @type {Derived} */
           s
         );
-        g == null || g.delete(f), (i & G) === 0 && (i & T && (s.f |= G), at(f, P));
+        g == null || g.delete(f), (i & G) === 0 && (i & k && (s.f |= G), at(f, P));
       } else o && ((i & se) !== 0 && N !== null && N.add(
         /** @type {Effect} */
         s
@@ -725,7 +725,7 @@ function ce(e, t, n) {
     ctx: D,
     deps: null,
     nodes: null,
-    f: e | y | T,
+    f: e | y | k,
     first: null,
     fn: t,
     last: null,
@@ -846,9 +846,9 @@ let h = null;
 function le(e) {
   h = e;
 }
-let k = null;
+let T = null;
 function dn(e) {
-  u !== null && (k === null ? k = [e] : k.push(e));
+  u !== null && (T === null ? T = [e] : T.push(e));
 }
 let w = null, E = 0, S = null;
 function vn(e) {
@@ -877,7 +877,7 @@ function de(e) {
       ), s.wv > e.wv)
         return !0;
     }
-    (t & T) !== 0 && // During time traveling we don't want to reset the status so that
+    (t & k) !== 0 && // During time traveling we don't want to reset the status so that
     // traversal of the graph in the other batches still happens
     g === null && x(e, m);
   }
@@ -885,7 +885,7 @@ function de(e) {
 }
 function bt(e, t, n = !0) {
   var r = e.reactions;
-  if (r !== null && !(k != null && k.includes(e)))
+  if (r !== null && !(T != null && T.includes(e)))
     for (var l = 0; l < r.length; l++) {
       var s = r[l];
       (s.f & b) !== 0 ? bt(
@@ -901,9 +901,9 @@ function bt(e, t, n = !0) {
 }
 function wt(e) {
   var z;
-  var t = w, n = E, r = S, l = u, s = k, i = D, o = B, f = e.f;
+  var t = w, n = E, r = S, l = u, s = T, i = D, o = B, f = e.f;
   w = /** @type {null | Value[]} */
-  null, E = 0, S = null, u = (f & (ue | ie)) === 0 ? e : null, k = null, pe(e.ctx), B = !1, ++me, e.ac !== null && (ct(() => {
+  null, E = 0, S = null, u = (f & (ue | ie)) === 0 ? e : null, T = null, pe(e.ctx), B = !1, ++me, e.ac !== null && (ct(() => {
     e.ac.abort(W);
   }), e.ac = null);
   try {
@@ -919,7 +919,7 @@ function wt(e) {
           d[E + p] = w[p];
       else
         e.deps = d = w;
-      if (dt() && (e.f & T) !== 0)
+      if (dt() && (e.f & k) !== 0)
         for (p = E; p < d.length; p++)
           ((z = d[p]).reactions ?? (z.reactions = [])).push(e);
     } else d !== null && E < d.length && (xe(e, E), d.length = E);
@@ -936,7 +936,7 @@ function wt(e) {
   } catch (R) {
     return qt(R);
   } finally {
-    e.f ^= Ne, w = t, E = n, S = r, u = l, k = s, pe(i), B = o;
+    e.f ^= Ne, w = t, E = n, S = r, u = l, T = s, pe(i), B = o;
   }
 }
 function _n(e, t) {
@@ -956,7 +956,7 @@ function _n(e, t) {
       /** @type {Derived} */
       t
     );
-    (s.f & T) !== 0 && (s.f ^= T, s.f &= ~G), Oe(s), it(s), xe(s, 0);
+    (s.f & k) !== 0 && (s.f ^= k, s.f &= ~G), Oe(s), it(s), xe(s, 0);
   }
 }
 function xe(e, t) {
@@ -986,7 +986,7 @@ function fe(e) {
   var t = e.f, n = (t & b) !== 0;
   if (u !== null && !B) {
     var r = h !== null && (h.f & O) !== 0;
-    if (!r && !(k != null && k.includes(e))) {
+    if (!r && !(T != null && T.includes(e))) {
       var l = u.deps;
       if ((u.f & Ne) !== 0)
         e.rv < me && (e.rv = me, w === null && l !== null && l[E] === e ? E++ : w === null ? w = [e] : w.includes(e) || w.push(e));
@@ -1008,8 +1008,8 @@ function fe(e) {
       var o = i.v;
       return ((i.f & m) === 0 && i.reactions !== null || xt(i)) && (o = Le(i)), L.set(i, o), o;
     }
-    var f = (i.f & T) === 0 && !B && u !== null && (H || (u.f & T) !== 0), a = i.deps === null;
-    de(i) && (f && (i.f |= T), ft(i)), f && !a && mt(i);
+    var f = (i.f & k) === 0 && !B && u !== null && (H || (u.f & k) !== 0), a = i.deps === null;
+    de(i) && (f && (i.f |= k), ft(i)), f && !a && mt(i);
   }
   if (g != null && g.has(e))
     return g.get(e);
@@ -1019,9 +1019,9 @@ function fe(e) {
 }
 function mt(e) {
   if (e.deps !== null) {
-    e.f |= T;
+    e.f |= k;
     for (const t of e.deps)
-      (t.reactions ?? (t.reactions = [])).push(e), (t.f & b) !== 0 && (t.f & T) === 0 && mt(
+      (t.reactions ?? (t.reactions = [])).push(e), (t.f & b) !== 0 && (t.f & k) === 0 && mt(
         /** @type {Derived} */
         t
       );
@@ -1051,7 +1051,7 @@ function hn(e, t) {
 }
 // @__NO_SIDE_EFFECTS__
 function gn(e, t) {
-  var n = (t & Tt) !== 0, r, l = !e.startsWith("<!>");
+  var n = (t & kt) !== 0, r, l = !e.startsWith("<!>");
   return () => {
     r === void 0 && (r = pn(l ? e : "<!>" + e), r = /** @type {TemplateNode} */
     /* @__PURE__ */ ut(r));
@@ -1102,7 +1102,7 @@ function xn(e, t, n, r, l, s) {
 const En = Symbol("is custom element"), yn = Symbol("is html");
 function Ve(e, t, n, r) {
   var l = Sn(e);
-  l[t] !== (l[t] = n) && (t === "loading" && (e[Ft] = n), n == null ? e.removeAttribute(t) : typeof n != "string" && Tn(e).includes(t) ? e[t] = n : e.setAttribute(t, n));
+  l[t] !== (l[t] = n) && (t === "loading" && (e[Ft] = n), n == null ? e.removeAttribute(t) : typeof n != "string" && kn(e).includes(t) ? e[t] = n : e.setAttribute(t, n));
 }
 function Sn(e) {
   return (
@@ -1110,12 +1110,12 @@ function Sn(e) {
     // @ts-expect-error
     e.__attributes ?? (e.__attributes = {
       [En]: e.nodeName.includes("-"),
-      [yn]: e.namespaceURI === kt
+      [yn]: e.namespaceURI === Tt
     })
   );
 }
 var He = /* @__PURE__ */ new Map();
-function Tn(e) {
+function kn(e) {
   var t = e.getAttribute("is") || e.nodeName, n = He.get(t);
   if (n) return n;
   He.set(t, n = []);
@@ -1144,7 +1144,7 @@ function q(e, t, n, r) {
     return a === void 0 ? i() : (s = !0, a);
   }, f;
 }
-var kn = /* @__PURE__ */ gn('<div><img class="svelte-1odgcft"/></div>');
+var Tn = /* @__PURE__ */ gn('<div><img class="svelte-1odgcft"/></div>');
 const An = {
   hash: "svelte-1odgcft",
   code: `.flag.svelte-1odgcft {display:inline-block;overflow:hidden;position:relative;box-sizing:border-box;align-items:center;}.flag.svelte-1odgcft img:where(.svelte-1odgcft) {display:block;width:100%;height:100%;object-fit:cover;}.flag.size-s.svelte-1odgcft {width:16px;height:12px;}.flag.size-s.drop-shadow.svelte-1odgcft {box-shadow:0 0 1px 0.5px rgba(0, 0, 0, 0.1);}.flag.size-s.border-radius.svelte-1odgcft {border-radius:1px;}.flag.size-s.border-radius.border.svelte-1odgcft::before {border-radius:1px;}.flag.size-m.svelte-1odgcft {width:20px;height:15px;}.flag.size-m.drop-shadow.svelte-1odgcft {box-shadow:0 1px 2px 0 rgba(0, 0, 0, 0.1);}.flag.size-m.border-radius.svelte-1odgcft {border-radius:1.5px;}.flag.size-m.border-radius.border.svelte-1odgcft::before {border-radius:1.5px;}.flag.size-l.svelte-1odgcft {width:32px;height:24px;}.flag.size-l.drop-shadow.svelte-1odgcft {box-shadow:0 2px 3px 0 rgba(0, 0, 0, 0.1);}.flag.size-l.border-radius.svelte-1odgcft {border-radius:2px;}.flag.size-l.border-radius.border.svelte-1odgcft::before {border-radius:2px;}.flag.border.svelte-1odgcft::before {content:'';width:100%;height:100%;position:absolute;display:block;mix-blend-mode:overlay;box-sizing:border-box;border:1px solid rgba(0, 0, 0, 0.5);}.flag.top-down.svelte-1odgcft::before {content:'';width:100%;height:100%;position:absolute;display:block;mix-blend-mode:overlay;box-sizing:border-box;background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.3) 2%, rgba(255, 255, 255, 0.7) 100%);}.flag.real-linear.svelte-1odgcft::before {content:'';width:100%;height:100%;position:absolute;display:block;mix-blend-mode:overlay;box-sizing:border-box;background-image:linear-gradient(
@@ -1183,8 +1183,8 @@ const An = {
 function Cn(e, t) {
   Mt(t, !0), wn(e, An);
   let n = q(t, "code", 3, "NL"), r = q(t, "size", 3, "m"), l = q(t, "gradient", 3, ""), s = q(t, "hasBorder", 3, !0), i = q(t, "hasDropShadow", 3, !1), o = q(t, "hasBorderRadius", 3, !0), f = q(t, "class", 3, "");
-  const a = (U) => U.toLowerCase(), c = /* @__PURE__ */ ke(() => a(l())), d = /* @__PURE__ */ ke(() => a(r())), p = /* @__PURE__ */ ke(() => `./dist/flags/${fe(d)}/${n()}.svg`);
-  var z = kn(), R = nn(z);
+  const a = (U) => U.toLowerCase(), c = /* @__PURE__ */ Te(() => a(l())), d = /* @__PURE__ */ Te(() => a(r())), p = /* @__PURE__ */ Te(() => `/node_modules/svelte-flagpack/dist/flags/${fe(d)}/${n()}.svg`);
+  var z = Tn(), R = nn(z);
   an(
     (U) => {
       xn(z, 1, U, "svelte-1odgcft"), Ve(R, "src", fe(p)), Ve(R, "alt", `Flag of ${n()}`);

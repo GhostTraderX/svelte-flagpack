@@ -6,14 +6,7 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: adapter(),
-		vite: {
-			server: {
-				fs: {
-					allow: ['..']
-				}
-			}
-		}
+		adapter: adapter()
 	}
 };
 

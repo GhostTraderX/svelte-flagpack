@@ -26,9 +26,8 @@
   const normalizedSize = $derived(lower(size));
 
   // Dynamically construct the flag URL
-  // Note: Flags are pre-generated at build time into dist/flags/ directory
-  // This path is relative to where the component is used in the consuming application
-  const flagUrl = $derived(`./dist/flags/${normalizedSize}/${code}.svg`);
+  // In SvelteKit and most build tools, we need to use an absolute path from node_modules
+  const flagUrl = $derived(`/node_modules/svelte-flagpack/dist/flags/${normalizedSize}/${code}.svg`);
 </script>
 
 <div
