@@ -61,6 +61,41 @@ import Flag from 'svelte-flagpack'
 | gradient |  String | false | '' | 'top-down', 'real-linear' or 'real-circular' |
 
 
+## Development with npm link
+
+If you want to use this package locally during development (e.g., with `npm link`):
+
+1. **Build the package:**
+```bash
+npm install
+npm run build
+npm link
+```
+
+2. **In your consuming project:**
+```bash
+npm link svelte-flagpack
+```
+
+3. **Important for Vite/SvelteKit projects:** Add this to your `vite.config.js` or `svelte.config.js`:
+```js
+export default {
+  server: {
+    fs: {
+      allow: ['..']  // Allow serving files from parent directories
+    }
+  },
+  optimizeDeps: {
+    include: ['svelte-flagpack']  // Pre-bundle the linked package
+  }
+}
+```
+
+If you encounter issues with `npm link`, you can also install directly from the local directory:
+```bash
+npm install /path/to/svelte-flagpack
+```
+
 ## Build
 ```bash
 # install dependencies
