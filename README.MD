@@ -77,19 +77,39 @@ npm link
 npm link svelte-flagpack
 ```
 
-3. **Important for Vite/SvelteKit projects:** Add this to your `vite.config.js` or `svelte.config.js`:
-```js
-export default {
-  server: {
-    fs: {
-      allow: ['..']  // Allow serving files from parent directories
-    }
-  },
-  optimizeDeps: {
-    include: ['svelte-flagpack']  // Pre-bundle the linked package
-  }
-}
-```
+3. **Important for Vite/SvelteKit projects:** 
+
+   **For standard Vite projects**, add this to your `vite.config.js`:
+   ```js
+   export default {
+     server: {
+       fs: {
+         allow: ['..']  // Allow serving files from parent directories
+       }
+     },
+     optimizeDeps: {
+       include: ['svelte-flagpack']  // Pre-bundle the linked package
+     }
+   }
+   ```
+
+   **For SvelteKit projects**, add this to your `svelte.config.js`:
+   ```js
+   export default {
+     kit: {
+       vite: {
+         server: {
+           fs: {
+             allow: ['..']
+           }
+         },
+         optimizeDeps: {
+           include: ['svelte-flagpack']
+         }
+       }
+     }
+   }
+   ```
 
 If you encounter issues with `npm link`, you can also install directly from the local directory:
 ```bash
