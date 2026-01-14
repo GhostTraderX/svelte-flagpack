@@ -9,6 +9,12 @@ dist/*.d.ts
 dist/*.css
 dist/Flag.svelte
 
+# Demo build artifacts
+demo/node_modules/
+demo/.svelte-kit/
+demo/build/
+demo/.vite/
+
 # Editor directories and files
 .idea
 *.suo

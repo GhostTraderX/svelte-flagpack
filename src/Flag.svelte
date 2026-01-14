@@ -7,6 +7,11 @@
     hasDropShadow?: boolean;
     hasBorderRadius?: boolean;
     class?: string;
+    /**
+     * Base URL for flag assets. Defaults to a CDN or can be set to a local path.
+     * For local development with npm link, use '/node_modules/svelte-flagpack/dist/flags'
+     */
+    flagsBaseUrl?: string;
   }
 
   let {
@@ -16,7 +21,8 @@
     hasBorder = true,
     hasDropShadow = false,
     hasBorderRadius = true,
-    class: className = ''
+    class: className = '',
+    flagsBaseUrl = 'https://cdn.jsdelivr.net/npm/flagpack-core@2.0.0/svg'
   }: FlagProps = $props();
 
   const lower = (q: string): string => q.toLowerCase();
@@ -26,9 +32,8 @@
   const normalizedSize = $derived(lower(size));
 
   // Dynamically construct the flag URL
-  // Note: Flags are pre-generated at build time into dist/flags/ directory
-  // This path is relative to where the component is used in the consuming application
-  const flagUrl = $derived(`./dist/flags/${normalizedSize}/${code}.svg`);
+  // Uses CDN by default, but can be overridden for local development
+  const flagUrl = $derived(`${flagsBaseUrl}/${normalizedSize}/${code}.svg`);
 </script>
 
 <div

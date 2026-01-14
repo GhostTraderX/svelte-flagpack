@@ -42,6 +42,13 @@ export interface FlagProps {
    * Additional CSS classes to apply to the flag
    */
   class?: string;
+
+  /**
+   * Base URL for flag assets
+   * @default "https://cdn.jsdelivr.net/npm/flagpack-core@2.0.0/svg"
+   * @example "/node_modules/svelte-flagpack/dist/flags" for local development
+   */
+  flagsBaseUrl?: string;
 }
 
 // Svelte 5 component typing
