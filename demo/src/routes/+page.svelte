@@ -15,6 +15,9 @@
 		{ code: 'AU', name: 'Australia' },
 		{ code: 'IT', name: 'Italy' }
 	];
+
+	// For local development, use the local flags from the linked package
+	const localFlagsBaseUrl = '/node_modules/svelte-flagpack/dist/flags';
 </script>
 
 <main>
@@ -26,7 +29,7 @@
 		<div class="demo-row">
 			{#each sizes as size}
 				<div class="demo-item">
-					<Flag code="NL" {size} />
+					<Flag code="NL" {size} flagsBaseUrl={localFlagsBaseUrl} />
 					<span class="label">Size: {size}</span>
 				</div>
 			{/each}
@@ -38,7 +41,7 @@
 		<div class="demo-row">
 			{#each gradients as gradient}
 				<div class="demo-item">
-					<Flag code="NL" size="l" {gradient} />
+					<Flag code="NL" size="l" {gradient} flagsBaseUrl={localFlagsBaseUrl} />
 					<span class="label">{gradient || 'none'}</span>
 				</div>
 			{/each}
@@ -49,19 +52,19 @@
 		<h2>Borders & Shadows</h2>
 		<div class="demo-row">
 			<div class="demo-item">
-				<Flag code="NL" size="l" hasBorder={true} />
+				<Flag code="NL" size="l" hasBorder={true} flagsBaseUrl={localFlagsBaseUrl} />
 				<span class="label">With Border</span>
 			</div>
 			<div class="demo-item">
-				<Flag code="NL" size="l" hasBorder={false} />
+				<Flag code="NL" size="l" hasBorder={false} flagsBaseUrl={localFlagsBaseUrl} />
 				<span class="label">No Border</span>
 			</div>
 			<div class="demo-item">
-				<Flag code="NL" size="l" hasDropShadow={true} />
+				<Flag code="NL" size="l" hasDropShadow={true} flagsBaseUrl={localFlagsBaseUrl} />
 				<span class="label">With Shadow</span>
 			</div>
 			<div class="demo-item">
-				<Flag code="NL" size="l" hasBorderRadius={false} />
+				<Flag code="NL" size="l" hasBorderRadius={false} flagsBaseUrl={localFlagsBaseUrl} />
 				<span class="label">No Radius</span>
 			</div>
 		</div>
@@ -72,7 +75,7 @@
 		<div class="country-grid">
 			{#each countries as country}
 				<div class="country-item">
-					<Flag code={country.code} size="l" />
+					<Flag code={country.code} size="l" flagsBaseUrl={localFlagsBaseUrl} />
 					<span class="country-name">{country.name}</span>
 				</div>
 			{/each}
@@ -89,6 +92,7 @@
 					gradient="real-linear" 
 					hasDropShadow={true}
 					class="custom-flag"
+					flagsBaseUrl={localFlagsBaseUrl}
 				/>
 				<span class="label">Combined effects</span>
 			</div>

@@ -67,6 +67,18 @@ npm install svelte-flagpack
 />
 ```
 
+### Local Development with Custom Base URL
+
+For local development (e.g., with `npm link`), you can specify a custom base URL for the flag assets:
+
+```svelte
+<Flag 
+  code="US" 
+  size="l"
+  flagsBaseUrl="/node_modules/svelte-flagpack/dist/flags"
+/>
+```
+
 ### With CSS Classes
 
 ```svelte
@@ -95,6 +107,9 @@ npm install svelte-flagpack
 | `hasDropShadow` | `boolean` | `false` | Add drop shadow effect |
 | `hasBorderRadius` | `boolean` | `true` | Apply border radius |
 | `class` | `string` | `''` | Additional CSS classes |
+| `flagsBaseUrl` | `string` | CDN URL | Base URL for flag assets (CDN by default, customizable for local dev) |
+
+**Note:** Flags are served from a CDN by default (`https://cdn.jsdelivr.net/npm/flagpack-core@2.0.0/svg`), ensuring zero bundle size impact. For local development with `npm link`, you can override this with the `flagsBaseUrl` prop.
 
 ### Country Codes
 
